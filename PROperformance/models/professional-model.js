@@ -21,9 +21,11 @@ const professionalSchema = new Schema({
     type: Schema.Types.ObjectId, ref: "Sport"
   }],
   registrationNumber: {
-      type: String,
-	required: [true, "Registration is required"]
+    type: Number,
+	required: [true, "Registration is required"],
+	min: 0
   },
+
   resources: {
     type: String,
   },

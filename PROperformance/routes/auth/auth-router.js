@@ -1,14 +1,15 @@
-const router = require("express").Router();
+const authRouter = require("express").Router();
 // :fuente_de_información: Handles password encryption
 const bcrypt = require("bcryptjs");
 const mongoose = require("mongoose");
 const saltRounds = process.env.SALT || 10; 
-const zxcvbn = require("zxcvbn");
+//const zxcvbn = require("zxcvbn");
 
 
 // Require the User model in order to interact with the database
 const User = require("../../models/user-model");
 const Professional = require("../../models/professional-model");
+const Sport = require('../../models/sport-model');
 
 
 // Require necessary (isLoggedOut and isLiggedIn) middleware in order to control access to specific routes
@@ -17,7 +18,6 @@ const isLoggedIn = require("../../middleware/isLoggedIn");
 
 
 // Routes go here
-
 //************ Sign up user***************/
 
 authRouter.get("/user-signup", isLoggedOut, (req, res) => {
@@ -73,8 +73,13 @@ User.findOne({ username })
 //************ Sign up professional***************/
 
 authRouter.get("/professional-signup", isLoggedOut, (req, res) => {
-  res.render("auth/professional-signup");
+  Sport.find()
+  .then(sport => {
+    res.render("auth/professional-signup", {sport});
+  })
+  .catch(err => console.log(err))
 });
+
 
 
 authRouter.post('/professional-signup', (req, res, next) => {

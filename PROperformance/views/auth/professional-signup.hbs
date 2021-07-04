@@ -1,0 +1,46 @@
+<h1>Sign Up Professionals</h1>
+
+<form id="form" action='/auth/professional-signup' method='POST'>
+
+  
+  <label for=''>Name</label>
+  <input type='text' name='name'>
+  
+  <label for=''>Email</label>
+  <input type='text' name='email'>
+
+  <label for=''>Password</label>
+  <input type='password' name='password'>
+  
+  <label for=''>Sport</label>
+    <select name="sport">
+    <option disable selected value="">Select a Sport</option>
+    {{#each sport}}
+      <option> {{name}}</option>
+    {{/each}}
+  </select>
+  
+  <label for=''>Registration Number</label>
+  <input type='number' name='registrationNumber'>
+  
+  
+  <label for=''>Resources</label>
+  <input type='string' name='resources'>
+  
+  <br>
+  <label>Image:</label>
+  <input type="text" name="imageUrl"/>
+
+
+  <button type='submit'>Submit</button>
+</form>
+
+
+
+{{#if errorMessage}}
+<div class="error-message"> {{errorMessage}} </div>
+{{/if}}
+
+<br> 
+
+<a href="/"><button style="background: blue">Return to homepage</button></a>
