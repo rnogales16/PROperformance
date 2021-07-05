@@ -14,6 +14,3 @@ sportRouter.get('/', (req, res, next) => {
     .then(allSports => res.render('sports/sports', {allSports}))
     .catch (err => console.log(err))
   })
-
-
-  
