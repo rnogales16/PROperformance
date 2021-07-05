@@ -23,13 +23,13 @@
   <label for=''>Sport</label>
   <select type='select' name='sport'>
     <option disable selected value="">Select a Sport</option>
-    {{#each sports}}
+    {{#each sport}}
     <option value="{{this}}">{{this}}</option>
     {{/each}}
   </select>
 
   <label for=''>Registration Number</label>
-  <input type='number' name='registrationNumber'>
+  <input type='number', min = '0', name='registrationNumber'>
   
   
   <label for=''>Resources</label>

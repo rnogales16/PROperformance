@@ -72,7 +72,7 @@ User.findOne({ name })
 //************ Sign up professional***************/
 
 authRouter.get("/professional-signup", isLoggedOut, (req, res) => {
-  res.render("auth/professional-signup", {sports: ['Crossfit', 'Swimming', 'Running']}, {roles: ['Athlete', 'Professional']});
+  res.render("auth/professional-signup", {sport: ['Crossfit', 'Swimming', 'Running'], roles: ['Athlete', 'Professional']});
 });
 
 
@@ -131,7 +131,6 @@ authRouter.get("/login", isLoggedOut, (req, res) => {
 
 authRouter.post("/login", isLoggedOut, (req, res, next) => {
   const { email, password } = req.body;
-
   
   if (email === "" || password === "" || password.length < 3) { 
     res.render("auth/login", { errorMessage: "Email and Password are required. Password must be more than 3 characters" }); 
@@ -148,11 +147,15 @@ authRouter.post("/login", isLoggedOut, (req, res, next) => {
       const encryptedPassword = user.password;
       // to encrypt the password and compare it use:
       const passwordCorrect = bcrypt.compareSync(password, encryptedPassword);
-  
+
       if(passwordCorrect){
         req.session.currentUser = user;
-        if(user.role === 'professional') res.redirect('/site/home/pro')
-        else res.redirect('/site/profile/user')
+        if(user.role === 'Professional') {
+          return res.redirect('/site/home/pro')
+        }
+        else {
+          return res.redirect('/site/profile/user')
+        }
       } else {
         res.render("auth/login", { errorMessage: "Username or password incorrect" });
       }
