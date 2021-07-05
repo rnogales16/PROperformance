@@ -1,1 +1,21 @@
-<h1>Hi Miki ':)'</h1>
+<h2>Your Profile</h2>
+
+<p>Name: {{user.name}}</p>
+<p>Email: {{user.email}}</p>
+<p>Registration: {{user.registrationNumber}}</p>
+<p>Speciality: {{user.sport}}</p>
+
+<p>Click "Choose File" button to upload a plan:</p>
+
+<form action="/action_page.php">
+  <input type="file" id="myFile" name="filename">
+  <input type="submit">
+</form>
+
+<p>Client reviews:</p>
+
+
+
+
+
+<a href="/auth/logout"><button style="background: red">LOGOUT</button></a>

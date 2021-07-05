@@ -10,7 +10,7 @@ require('../db/index.js');
 const users = [
   {
     name: 'Raul',
-    password: 'raul',
+    password: '$2a$10$qQxOtdmNPsgXcv1YFvbJ5uRzogrwIvguoEbkgfp4jWfgCbEOraQxK',
     email: 'raul@raul.com',
     role: 'Professional',
     sport: 'Crossfit',
@@ -19,7 +19,7 @@ const users = [
   },
   {
     name: 'Miki',
-    password: 'miki',
+    password: '$2a$10$qQxOtdmNPsgXcv1YFvbJ5uRzogrwIvguoEbkgfp4jWfgCbEOraQxK',
     email: 'miki@miki.com',
     role: 'Professional',
     sport: 'Running',
@@ -28,13 +28,13 @@ const users = [
   },
   {
     name: 'Marco',
-    password: 'marco',
+    password: '$2a$10$qQxOtdmNPsgXcv1YFvbJ5uRzogrwIvguoEbkgfp4jWfgCbEOraQxK',
     email: 'marco@marco.com',
     role: 'Athlete',
   },
   {
     name: 'Fede',
-    password: 'fede',
+    password: '$2a$10$qQxOtdmNPsgXcv1YFvbJ5uRzogrwIvguoEbkgfp4jWfgCbEOraQxK',
     email: 'fede@fede.com',
     role: 'Athlete',
   },

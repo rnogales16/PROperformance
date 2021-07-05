@@ -12,12 +12,12 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 // routes go here:
 
 personalRouter.get("/profile/user", isLoggedIn, (req, res) => {
-    res.render("users/user-profile");
+    res.render("users/user-profile", {user: req.session.currentUser});
 });
 
 
 personalRouter.get("/profile/professional", isLoggedIn, (req, res) => {
-  res.render("professionals/professional-profile");
+  res.render("professionals/professional-profile", {user: req.session.currentUser});
 });
 
 
