@@ -13,13 +13,13 @@
   <input type='password' name='password'>
   
   <label for=''>Sport</label>
-    <select name="sport">
+  <select type='select' name='sport'>
     <option disable selected value="">Select a Sport</option>
-    {{#each sport}}
-      <option> {{name}}</option>
+    {{#each sports}}
+    <option value="{{this}}">{{this}}</option>
     {{/each}}
   </select>
-  
+
   <label for=''>Registration Number</label>
   <input type='number' name='registrationNumber'>
   
