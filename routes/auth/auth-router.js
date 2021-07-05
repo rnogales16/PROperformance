@@ -78,8 +78,8 @@ authRouter.get("/professional-signup", isLoggedOut, (req, res) => {
 
 
 authRouter.post('/professional-signup', (req, res, next) => {
-  const { name, password, email, sport, registrationNumber, resources, imgUrl } = req.body;
-  if (name === "" || password === "" || email === "" || sport === "" || registrationNumber === "" || resources === "" || imageUrl === "" || password.length < 3)  {
+  const { name, password, email, sport, registrationNumber, resources, imageUrl } = req.body;
+  if (name === "" || password === "" || email === "" || sport === "" || registrationNumber === "" || password.length < 3)  {
   res.render('auth/professional-signup', {
     errorMessage: 'All fields are required.',
   });
@@ -87,7 +87,7 @@ authRouter.post('/professional-signup', (req, res, next) => {
 }
 
 //Check if the username is not taken
-Professional.findOne({ name })
+User.findOne({ name })
 .then((userObj) => {
   if (userObj) {
     // if user was found
@@ -103,7 +103,7 @@ Professional.findOne({ name })
     const hashedPassword = bcrypt.hashSync(password, salt);
 
     // Create new user in DB, saving the encrypted password
-    Professional.create({ name, email, password: hashedPassword, sport, registrationNumber, resources, imageUrl })
+    User.create({ name, email, password: hashedPassword, sport, registrationNumber, resources, imageUrl })
       .then((user) => res.redirect("/auth/login"))
       .catch((err) => {
         if (err instanceof mongoose.Error.ValidationError) { 
