@@ -22,7 +22,7 @@ personalRouter.get("/profile/professional", (req, res) => {
 
 
 personalRouter.get('/new-plan', (req, res) => {
-	res.render('professionals/new-plan');
+	res.render('professionals/new-plan', {user: req.session.currentUser});
 });
 
 
