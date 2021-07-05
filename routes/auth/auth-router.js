@@ -150,7 +150,7 @@ authRouter.post("/login", isLoggedOut, (req, res, next) => {
 
       if(passwordCorrect){
         req.session.currentUser = user;
-        if(user.role === 'Professional') {
+        if(user.role == 'Professional') {
           return res.redirect('/site/home/pro')
         }
         else {
