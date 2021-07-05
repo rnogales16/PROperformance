@@ -11,6 +11,14 @@
 
   <label for=''>Password</label>
   <input type='password' name='password'>
+
+  <label for=''>Role</label>
+  <select type='select' name='role'>
+    <option disable selected value="">Select a role</option>
+    {{#each roles}}
+    <option value="{{this}}">{{this}}</option>
+    {{/each}}
+  </select>
   
   <label for=''>Sport</label>
   <select type='select' name='sport'>
@@ -34,7 +42,6 @@
 
   <button type='submit'>Submit</button>
 </form>
-
 
 
 {{#if errorMessage}}

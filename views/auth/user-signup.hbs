@@ -1,16 +1,23 @@
-<h1>Sign Up Athletes</h1>
+<h1>Sign Up</h1>
 
 <form id="form" action='/auth/user-signup' method='POST'>
 
 
   <label for=''>Name</label>
-  <input type='text' name='username'>
+  <input type='text' name='name'>
   
   <label for=''>Email</label>
   <input type='text' name='email'>
 
   <label for=''>Password</label>
   <input type='password' name='password'>
+
+  <select type='select' name='role'>
+    <option disable selected value="">Select a role</option>
+    {{#each roles}}
+    <option value="{{this}}">{{this}}</option>
+    {{/each}}
+  </select>
 
   <button type='submit'>Submit</button>
 </form>

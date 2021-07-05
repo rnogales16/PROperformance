@@ -8,7 +8,6 @@ const saltRounds = process.env.SALT || 10;
 
 // Require the User model in order to interact with the database
 const User = require("../../models/user-model");
-const Professional = require("../../models/professional-model");
 
 
 // Require necessary (isLoggedOut and isLiggedIn) middleware in order to control access to specific routes
@@ -20,17 +19,14 @@ const isLoggedIn = require("../../middleware/isLoggedIn");
 //************ Sign up user***************/
 
 authRouter.get("/user-signup", isLoggedOut, (req, res) => {
-  res.render("auth/user-signup");
+  res.render("auth/user-signup", {roles: ['Athlete', 'Professional']});
 });
 
 
 // POST    '/auth/signup'
 authRouter.post('/user-signup', (req, res, next) => {
-  const { username, password, email } = req.body;
-  console.log(username);
-  console.log(email);
-  console.log(password);
-  if (username === "" || password === "" || email === "" || password.length < 3)  {
+  const { name, password, email } = req.body;
+  if (name === "" || password === "" || email === "" || password.length < 3)  {
   res.render('auth/user-signup', {
     errorMessage: 'Name, email and Password are required.',
   });
@@ -38,12 +34,12 @@ authRouter.post('/user-signup', (req, res, next) => {
 }
 
 //Check if the username is not taken
-User.findOne({ username })
+User.findOne({ name })
 .then((userObj) => {
   if (userObj) {
     // if user was found
     res.render('auth/user-signup', {
-      errorMessage: `Name ${username} is already taken.`,
+      errorMessage: `Name ${name} is already taken.`,
     });
     return;
   } else {
@@ -54,8 +50,10 @@ User.findOne({ username })
     const hashedPassword = bcrypt.hashSync(password, salt);
 
     // Create new user in DB, saving the encrypted password
-    User.create({ username, email, password: hashedPassword })
-      .then((user) => res.redirect("/auth/login"))
+    User.create({ name, email, password: hashedPassword })
+      .then((user) => {
+        res.redirect("/auth/login")
+      })
       .catch((err) => {
         if (err instanceof mongoose.Error.ValidationError) { 
         res.render('auth/user-signup', {
@@ -74,7 +72,7 @@ User.findOne({ username })
 //************ Sign up professional***************/
 
 authRouter.get("/professional-signup", isLoggedOut, (req, res) => {
-  res.render("auth/professional-signup", {sports: ['Crossfit', 'Swimming', 'Running']});
+  res.render("auth/professional-signup", {sports: ['Crossfit', 'Swimming', 'Running']}, {roles: ['Athlete', 'Professional']});
 });
 
 
@@ -128,7 +126,7 @@ Professional.findOne({ name })
 // *********** login user**************
 
 authRouter.get("/login", isLoggedOut, (req, res) => {
-  res.render("auth/login", {type: ['Athlete', 'Professional']});
+  res.render("auth/login");
 });
 
 authRouter.post("/login", isLoggedOut, (req, res, next) => {
@@ -153,8 +151,7 @@ authRouter.post("/login", isLoggedOut, (req, res, next) => {
   
       if(passwordCorrect){
         req.session.currentUser = user;
-
-        if(user.type === 'Professional')res.redirect('/site/home/pro')
+        if(user.role === 'professional') res.redirect('/site/home/pro')
         else res.redirect('/site/profile/user')
       } else {
         res.render("auth/login", { errorMessage: "Username or password incorrect" });

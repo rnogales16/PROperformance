@@ -6,7 +6,6 @@ const mongoose = require("mongoose");
 
 
 const User = require("../models/user-model");
-const Professional = require("../models/professional-model");
 
 
 
@@ -16,6 +15,9 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 
 // routes go here:
 
-personalRouter.get("/site/profile/user", isLoggedIn, (req, res) => {
+personalRouter.get("/profile/user", isLoggedIn, (req, res) => {
     res.render("users/user-profile");
   });
+
+
+module.exports = personalRouter;
