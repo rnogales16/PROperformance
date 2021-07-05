@@ -2,11 +2,21 @@
 
 <form id="form" action='/auth/login' method='POST'>
 
-  <label for=''>Username</label>
-  <input type='text' name='username' required>
+  <label for=''>Email</label>
+  <input type='text' name='email' required>
 
   <label for=''>Password</label>
   <input type='password' name='password'>
+
+  <label for=''>Type</label>
+  <select type='select' name='type'>
+    <option disable selected value="">Select a Type</option>
+    {{#each type}}
+    <option value="{{this}}">{{this}}</option>
+    {{/each}}
+  </select>
+
+  {{!--<input name="action" onclick="history.back()" type="submit" value="Cancel"/>--}}
 
   <button type='submit'>Submit</button>
 </form>

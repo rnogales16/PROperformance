@@ -26,8 +26,11 @@ authRouter.get("/user-signup", isLoggedOut, (req, res) => {
 
 // POST    '/auth/signup'
 authRouter.post('/user-signup', (req, res, next) => {
-  const { name, password, email } = req.body;
-  if (name === "" || password === "" || email === "" || password.length < 3)  {
+  const { username, password, email } = req.body;
+  console.log(username);
+  console.log(email);
+  console.log(password);
+  if (username === "" || password === "" || email === "" || password.length < 3)  {
   res.render('auth/user-signup', {
     errorMessage: 'Name, email and Password are required.',
   });
@@ -40,7 +43,7 @@ User.findOne({ username })
   if (userObj) {
     // if user was found
     res.render('auth/user-signup', {
-      errorMessage: `Username ${username} is already taken.`,
+      errorMessage: `Name ${username} is already taken.`,
     });
     return;
   } else {
@@ -51,22 +54,21 @@ User.findOne({ username })
     const hashedPassword = bcrypt.hashSync(password, salt);
 
     // Create new user in DB, saving the encrypted password
-    User.create({ name, email, password: hashedPassword })
-      .then((user) => res.redirect("/login"))
+    User.create({ username, email, password: hashedPassword })
+      .then((user) => res.redirect("/auth/login"))
       .catch((err) => {
         if (err instanceof mongoose.Error.ValidationError) { 
         res.render('auth/user-signup', {
           errorMessage: err.message, 
         });
         } else {
-          next(err) // this is transforming it into a middleware, it passes onto the next router to catch the error(see err - refers to app.js)
+          next(err)
         }
-      });
+      })
   }
 })
 .catch((err) => next(err));
 
-// X.  Catch errors coming from calling to User collection
 });
 
 //************ Sign up professional***************/
@@ -87,12 +89,12 @@ authRouter.post('/professional-signup', (req, res, next) => {
 }
 
 //Check if the username is not taken
-Professional.findOne({ username })
+Professional.findOne({ name })
 .then((userObj) => {
   if (userObj) {
     // if user was found
     res.render('auth//professional-signup', {
-      errorMessage: `Username ${username} is already taken.`,
+      errorMessage: `Name ${name} is already taken.`,
     });
     return;
   } else {
@@ -104,7 +106,7 @@ Professional.findOne({ username })
 
     // Create new user in DB, saving the encrypted password
     Professional.create({ name, email, password: hashedPassword, sport, registrationNumber, resources, imageUrl })
-      .then((user) => res.redirect("/login"))
+      .then((user) => res.redirect("/auth/login"))
       .catch((err) => {
         if (err instanceof mongoose.Error.ValidationError) { 
         res.render('auth/professional-signup', {
@@ -126,19 +128,19 @@ Professional.findOne({ username })
 // *********** login user**************
 
 authRouter.get("/login", isLoggedOut, (req, res) => {
-  res.render("auth/login");
+  res.render("auth/login", {type: ['Athlete', 'Professional']});
 });
 
 authRouter.post("/login", isLoggedOut, (req, res, next) => {
-  const { username, password } = req.body;
+  const { email, password } = req.body;
 
   
-  if (username === "" || password === "" || password.length < 3) { 
-    res.render("auth/login", { errorMessage: "Username and Password are required. Password must be more than 3 characters" }); 
+  if (email === "" || password === "" || password.length < 3) { 
+    res.render("auth/login", { errorMessage: "Email and Password are required. Password must be more than 3 characters" }); 
     return; // stops the execution of the function further
     }
   // Search the database for a user with the username submitted in the form
-  User.findOne({username})
+  User.findOne({email})
   .then(user => {
     // if user not found, show error message below
     if (!user) {
@@ -152,46 +154,10 @@ authRouter.post("/login", isLoggedOut, (req, res, next) => {
       if(passwordCorrect){
         req.session.currentUser = user;
 
-        if(user.type === 'pro')res.redirect('/site/home/pro')
-        else res.redirect('/sites/home')
+        if(user.type === 'Professional')res.redirect('/site/home/pro')
+        else res.redirect('/site/profile/user')
       } else {
-        res.render("auth/login", { errorMessage: "Name or password incorrect" });
-      }
-      }
-  })
-})
-
-// *********** login professional**************
-
-authRouter.get("/login", isLoggedOut, (req, res) => {
-  res.render("auth/login");
-});
-
-authRouter.post("/login", isLoggedOut, (req, res, next) => {
-  const { username, password } = req.body;
-
-  
-  if (username === "" || password === "" || password.length < 3) { 
-    res.render("auth/login", { errorMessage: "Username and Password are required. Password must be more than 3 characters" }); 
-    return; // stops the execution of the function further
-    }
-  // Search the database for a user with the username submitted in the form
-  Professional.findOne({username})
-  .then(professional => {
-    // if user not found, show error message below
-    if (!professional) {
-      res.render("auth/login", { errorMessage: "Input invalid!" });
-    } else {
-      // If user exists ->  Check if the password is correct
-      const encryptedPassword = user.password;
-      // to encrypt the password and compare it use:
-      const passwordCorrect = bcrypt.compareSync(password, encryptedPassword);
-  
-      if(passwordCorrect){
-        req.session.currentUser = professional;
-        res.redirect('/site/home')
-      } else {
-        res.render("auth/login", { errorMessage: "Name or password incorrect" });
+        res.render("auth/login", { errorMessage: "Username or password incorrect" });
       }
       }
   })
