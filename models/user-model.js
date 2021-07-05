@@ -17,7 +17,7 @@ const userSchema = new Schema({
 		match: [ /^\S+@\S+\.\S+$/ , "Please input a valid email"],
 		lowercase: true
 	},
-	role: {type: String, enum: ['Professional', 'Athlete']},
+	role: {type: String, enum: ['Professional', 'Athlete'], default: 'Athlete'},
 
 	sport: {type: String, enum: ['Crossfit', 'Swimming', 'Running']},
 

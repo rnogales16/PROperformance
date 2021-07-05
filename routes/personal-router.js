@@ -13,7 +13,12 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 
 personalRouter.get("/profile/user", isLoggedIn, (req, res) => {
     res.render("users/user-profile");
-  });
+});
+
+
+personalRouter.get("/profile/professional", isLoggedIn, (req, res) => {
+  res.render("professionals/professional-profile");
+});
 
 
 module.exports = personalRouter;

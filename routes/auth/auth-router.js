@@ -78,7 +78,7 @@ authRouter.get("/professional-signup", isLoggedOut, (req, res) => {
 
 
 authRouter.post('/professional-signup', (req, res, next) => {
-  const { name, password, email, sport, registrationNumber, resources, imageUrl } = req.body;
+  const { name, password, role, email, sport, registrationNumber, resources, imageUrl } = req.body;
   if (name === "" || password === "" || email === "" || sport === "" || registrationNumber === "" || password.length < 3)  {
   res.render('auth/professional-signup', {
     errorMessage: 'All fields are required.',
@@ -103,7 +103,7 @@ User.findOne({ name })
     const hashedPassword = bcrypt.hashSync(password, salt);
 
     // Create new user in DB, saving the encrypted password
-    User.create({ name, email, password: hashedPassword, sport, registrationNumber, resources, imageUrl })
+    User.create({ name, email, role, password: hashedPassword, sport, registrationNumber, resources, imageUrl })
       .then((user) => res.redirect("/auth/login"))
       .catch((err) => {
         if (err instanceof mongoose.Error.ValidationError) { 
@@ -150,8 +150,8 @@ authRouter.post("/login", isLoggedOut, (req, res, next) => {
 
       if(passwordCorrect){
         req.session.currentUser = user;
-        if(user.role == 'Professional') {
-          return res.redirect('/site/home/pro')
+        if(user.role === 'Professional') {
+          return res.redirect('/site/profile/professional')
         }
         else {
           return res.redirect('/site/profile/user')
