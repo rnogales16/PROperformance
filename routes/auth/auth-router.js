@@ -156,7 +156,9 @@ authRouter.post("/login", isLoggedOut, (req, res, next) => {
   
       if(passwordCorrect){
         req.session.currentUser = user;
-        res.redirect('/site/home')
+
+        if(user.type === 'pro')res.redirect('/site/home/pro')
+        else res.redirect('/sites/home')
       } else {
         res.render("auth/login", { errorMessage: "Name or password incorrect" });
       }
