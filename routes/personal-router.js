@@ -25,6 +25,10 @@ personalRouter.get('/new-plan', (req, res) => {
 	res.render('professionals/new-plan');
 });
 
+
+personalRouter.post('/new-plan', (req , res) => {
+	const id = req.session.currenUser._id
+})
 /* router.post('/new-plan', (req, res) => {
 
 	//Get the user id from the session
@@ -42,7 +46,6 @@ personalRouter.get('/new-plan', (req, res) => {
 		owner: userId
 	})
 	.then((createdRoom) => {
-
 		console.log(createdRoom)
 		res.redirect('/private/rooms/add');
 
@@ -58,3 +61,12 @@ personalRouter.get('/new-plan', (req, res) => {
 
 
 module.exports = personalRouter;
+
+
+
+/* 
+install multer: is a middleware, only works when de user is loged in
+var multer = require ('multer')
+app.post('/profile', upload.single)
+
+*/
