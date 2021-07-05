@@ -9,7 +9,6 @@ const saltRounds = process.env.SALT || 10;
 // Require the User model in order to interact with the database
 const User = require("../../models/user-model");
 const Professional = require("../../models/professional-model");
-const Sport = require('../../models/sport-model');
 
 
 // Require necessary (isLoggedOut and isLiggedIn) middleware in order to control access to specific routes
@@ -73,11 +72,7 @@ User.findOne({ username })
 //************ Sign up professional***************/
 
 authRouter.get("/professional-signup", isLoggedOut, (req, res) => {
-  Sport.find()
-  .then(sport => {
-    res.render("auth/professional-signup", {sport});
-  })
-  .catch(err => console.log(err))
+  res.render("auth/professional-signup", {sports: ['Crossfit', 'Swimming', 'Running']});
 });
 
 
@@ -147,7 +142,7 @@ authRouter.post("/login", isLoggedOut, (req, res, next) => {
   .then(user => {
     // if user not found, show error message below
     if (!user) {
-      res.render("auth/login", { errorMessage: "Input invalid!" });
+      res.render("auth/login", { errorMessage: "Input invalid!"});
     } else {
       // If user exists ->  Check if the password is correct
       const encryptedPassword = user.password;
