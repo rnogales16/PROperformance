@@ -30,7 +30,8 @@ const userSchema = new Schema({
 		default: 'https://www.google.com/search?q=defaul+profile+picturesxsrf=ALeKk004htaevlPfixR2HAvxyV95Lt4fCg:162540255888&source=lnms&tbm=isch&sa=Xved=2ahUKEwiBoo6xuMnxAhWHlxQKHZy8B7QQ_AUoAXoECAEQAwbiw=1536&bih=722&dpr=1.25#imgrc=eHQKa74ZnnpTfM'
 	},
 	likedPlans: [{type: Schema.Types.ObjectId, ref: 'Plans'}],
-	reviews: [{type: Schema.Types.ObjectId, ref: 'Review', default: []}]
+	reviews: [{type: Schema.Types.ObjectId, ref: 'Review', default: []}],
+	plans: [{type: Schema.Types.ObjectId, ref: 'Plan', default: []}]
 });
 
 const User = model('User', userSchema);

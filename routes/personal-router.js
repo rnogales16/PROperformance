@@ -13,11 +13,13 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 
 // routes go here:
 
+//User profile
+
 personalRouter.get("/profile/user", (req, res) => {
     res.render("users/user-profile", {user: req.session.currentUser});
 });
 
-
+// Professional profile
 personalRouter.get("/profile/professional", (req, res) => {
 	Plan.find({owner: req.session.currentUser._id})
 	.populate("reviews")
@@ -27,6 +29,9 @@ personalRouter.get("/profile/professional", (req, res) => {
 });
 
 
+
+// all professionals
+
 personalRouter.get('/all-professionals', (req, res) => {
 	User.find({role: 'Professional'})
 	// need to know how to populate plans here? Possible?
@@ -35,7 +40,7 @@ personalRouter.get('/all-professionals', (req, res) => {
 })
 
 
-
+// one professional by id
 personalRouter.get('/professional/:id', (req, res) => {
 	User.findById(req.params.id)
 	.populate('reviews')
@@ -44,7 +49,7 @@ personalRouter.get('/professional/:id', (req, res) => {
 	.catch(err => console.log(err))
 })
 
-
+// reviewing one professional
 personalRouter.post('/professional/:id', (req, res) => {
 	const professionalId = req.params.id
 	const comment = req.body.comment
