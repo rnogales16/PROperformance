@@ -27,8 +27,41 @@ personalRouter.get("/profile/professional", (req, res) => {
 });
 
 
+personalRouter.get('/all-professionals', (req, res) => {
+	User.find({role: 'Professional'})
+	// need to know how to populate plans here? Possible?
+	.then(professionals => res.render('professionals/all-professionals', {professionals}))
+	.catch(err => console.log(err))
+})
 
 
+
+personalRouter.get('/professional/:id', (req, res) => {
+	User.findById(req.params.id)
+	.populate('reviews')
+	.populate('plans')
+	.then(professional => res.render('professionals/each-professional', professional))
+	.catch(err => console.log(err))
+})
+
+
+personalRouter.post('/professional/:id', (req, res) => {
+	const professionalId = req.params.id
+	const comment = req.body.comment
+
+	Review.create({
+		user: req.session.currentUser._id,
+		comment
+	})
+	.then((newReview) => {
+		console.log(newReview)
+		User.findByIdAndUpdate(professionalId, {
+			$addToSet: {reviews: newReview._id}
+		})
+			.then(updatedProfessional => res.redirect(`/site/professional/${professionalId}`))
+			})
+	.catch(err => console.log(err))
+	})
 
 module.exports = personalRouter;
 
