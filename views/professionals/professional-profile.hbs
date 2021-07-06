@@ -1,11 +1,17 @@
-<h2>Your Profile</h2>
+<h2>{{user.name}} Profile</h2>
 
-<p>Name: {{user.name}}</p>
 <p>Email: {{user.email}}</p>
 <p>Registration: {{user.registrationNumber}}</p>
 <p>Speciality: {{user.sport}}</p>
 
-<a href="/site/new-plan"><button>Create a new plan</button></a>
+<a href="/plan/new-plan"><button>Create a new plan</button></a>
+
+<h1>Instructor Plans</h1>
+{{#each planData}}
+<h2>{{title}}</h2>
+<p>{{description}}</p>
+
+{{/each}}
 
 <p>Client reviews:</p>
 

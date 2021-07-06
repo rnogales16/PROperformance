@@ -26,13 +26,21 @@ app.locals.title = `${capitalized(projectName)} created with IronLauncher`;
 // 👇 Start handling routes here
 const isLoggedIn = require('./middleware/isLoggedIn');
 
+const reviewsRouter = require("./routes/reviews-router")
+app.use("/review", isLoggedIn, reviewsRouter);
+
 const authRouter = require("./routes/auth/auth-router");
 app.use("/auth", authRouter);
+
 const personalRouter = require("./routes/personal-router")
 app.use("/site", isLoggedIn, personalRouter);
 
+const plansRouter = require('./routes/plans-router')
+app.use('/plan', isLoggedIn, plansRouter)
+
 const index = require("./routes/index");
 app.use("/", index);
+
 
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes

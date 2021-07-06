@@ -2,6 +2,8 @@ const personalRouter = require("express").Router();
 const mongoose = require("mongoose");
 
 const User = require("../models/user-model");
+const Plan = require("../models/plans-model");
+const Review = require("../models/review-model");
 
 
 
@@ -17,44 +19,12 @@ personalRouter.get("/profile/user", (req, res) => {
 
 
 personalRouter.get("/profile/professional", (req, res) => {
-  res.render("professionals/professional-profile", {user: req.session.currentUser});
+	Plan.find({owner: req.session.currentUser._id})
+	.populate("reviews")
+	.then(planData => res.render("professionals/professional-profile", {user: req.session.currentUser, planData})	
+	)
+	.catch(err => console.log(err))
 });
-
-
-personalRouter.get('/new-plan', (req, res) => {
-	res.render('professionals/new-plan', {user: req.session.currentUser});
-});
-
-
-personalRouter.post('/new-plan', (req , res) => {
-	const id = req.session.currenUser._id
-})
-/* router.post('/new-plan', (req, res) => {
-
-	//Get the user id from the session
-	const userId = req.session.currentUser._id;
-
-	//Get the form data from the body
-	const { name, description, imageUrl } = req.body;
-
-	console.log(name, description, imageUrl);
-
-	Room.create({
-		name,
-		description,
-		imageUrl,
-		owner: userId
-	})
-	.then((createdRoom) => {
-		console.log(createdRoom)
-		res.redirect('/private/rooms/add');
-
-	})
-	.catch((error) => {console.log(error)})
-
-}); */
-
-
 
 
 
