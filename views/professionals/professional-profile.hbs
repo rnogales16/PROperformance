@@ -10,6 +10,18 @@
 {{#each planData}}
 <h2>{{title}}</h2>
 <p>{{description}}</p>
+<p>{{imageUrl}}</p>
+
+
+
+
+
+<a href="/plan/edit-plan/{{_id}}"><button type="submit">Edit plan</button></a>
+
+
+<form action="/plan/delete-plan/{{_id}}" method="POST">
+  <button type="submit">Delete plan</button>
+</form>
 
 {{/each}}
 
