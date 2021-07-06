@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 
 const User = require("../models/user-model");
 const Plan = require("../models/plans-model");
+const fileUploader = require('../config/cloudinary');
 
 
 const isLoggedOut = require("../middleware/isLoggedOut");
@@ -17,18 +18,17 @@ plansRouter.get('/new-plan', (req, res) => {
 
 
 // post new plan
-plansRouter.post('/new-plan', (req , res) => {
+plansRouter.post('/new-plan', fileUploader.single('imageUrl'), (req , res) => {
   const owner = req.session.currentUser._id
   const {title, description} = req.body
-  console.log('this is a log of the body', {title, description})
+  const imageUrl = req.file.path
 
-  Plan.create({owner, title, description})
+  Plan.create({owner, title, description, imageUrl})
   .then((newPlan => {
-    console.log('this is a log of the data', newPlan)
     res.redirect('/site/profile/professional')
-}))
+  }))
+  .catch(err => console.log(err))
 })
-
 
 
 
@@ -58,11 +58,20 @@ plansRouter.get('/edit-plan/:id', (req, res) => {
   .catch(err => console.log(err))
 })
 
-plansRouter.post('/edit-plan/:id', (req, res) => {
+plansRouter.post('/edit-plan/:id', fileUploader.single('imageUrl'), (req, res) => {
   const id = req.params.id;
-  const {title, description, imageUrl} = req.body;
+  const {title, description, existingPDF} = req.body;
+
+  let imageUrl;
+  if (req.file) {
+    imageUrl = req.file.path;
+  } else {
+    imageUrl = existingPDF;
+  }
+
   Plan.findByIdAndUpdate(id, {title, description, imageUrl})
   .then(editPlan => res.redirect('/site/profile/professional'))
+  .catch(err => console.log(err))
 })
 
 
