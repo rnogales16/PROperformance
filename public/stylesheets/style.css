@@ -10,3 +10,13 @@ a {
 h1 {
   color: 15px;
 }
+
+
+.rating {
+  width: 180px;
+}
+
+.rating__star {
+  cursor: pointer;
+  color: #dabd18b2;
+}

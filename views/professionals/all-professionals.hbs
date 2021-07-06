@@ -2,6 +2,12 @@
 
 <h1>List of all rooms</h1>
 
+<div class="filter">
+    <p>Order by rating</p>
+    <input type="checkbox" id='filter-btn'>
+</div>
+
+
 {{#each professionals}}
 
     <div class="professional-card">
@@ -19,6 +25,3 @@
     </div>
 
 {{/each}}
-
-
-<h4>Reviews: {{reviews}}</h4>
