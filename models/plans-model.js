@@ -16,3 +16,21 @@ const planSchema = new Schema({
 const Plan = model('Plan', planSchema);
 
 module.exports = Plan;
+
+
+
+/*
+Cloudinary.config({
+	cloud_name:
+	api_key
+	api_secret:
+})
+
+const storage = new cloudinaryStorage({
+	Cloudinary,
+	params: {
+		allawed_format: ['svg', 'png', 'jpg'],
+		folder: 'cloudinary-test'
+	}
+})
+*/
