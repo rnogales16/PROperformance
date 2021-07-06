@@ -1,0 +1,24 @@
+
+
+<h1>List of all rooms</h1>
+
+{{#each professionals}}
+
+    <div class="professional-card">
+
+        <h2>Name: {{name}}</h2>
+        
+        <p>Email: {{email}}</p>
+        
+        <img class="professional-img {{_id}}" src="{{imageUrl}}" alt="{{name}}" />
+        
+        <p>Specialities: {{sport}}</p>
+        
+        
+        <a href="/site/professional/{{_id}}">See more</a>
+    </div>
+
+{{/each}}
+
+
+<h4>Reviews: {{reviews}}</h4>
