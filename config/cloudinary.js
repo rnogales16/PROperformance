@@ -12,7 +12,7 @@ const storage = new CloudinaryStorage({
     cloudinary,
     params: {
         allowed_formats: ['svg', 'png', 'jpg', 'pdf'],
-        folder: 'cloudinary-test'
+        folder: 'PROperformance',
     }
 })
 
