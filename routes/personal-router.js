@@ -43,8 +43,15 @@ personalRouter.get('/all-professionals', (req, res) => {
 // one professional by id
 personalRouter.get('/professional/:id', (req, res) => {
 	User.findById(req.params.id)
-	.populate('reviews')
-	.populate('plans')
+	.populate({
+		path: 'reviews',
+		populate: {
+			path: 'plans',
+			populate: {
+				path: 'owner'
+			}
+		}
+	})
 	.then(professional => res.render('professionals/each-professional', professional))
 	.catch(err => console.log(err))
 })
