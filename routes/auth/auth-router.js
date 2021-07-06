@@ -8,6 +8,7 @@ const saltRounds = process.env.SALT || 10;
 
 // Require the User model in order to interact with the database
 const User = require("../../models/user-model");
+const fileUploader = require('../config/cloudinary')
 
 
 // Require necessary (isLoggedOut and isLiggedIn) middleware in order to control access to specific routes
@@ -24,8 +25,10 @@ authRouter.get("/user-signup", isLoggedOut, (req, res) => {
 
 
 // POST    '/auth/signup'
-authRouter.post('/user-signup', (req, res, next) => {
+authRouter.post('/user-signup', fileUploader.single('imageUrl'), (req, res, next) => {
   const { name, password, email } = req.body;
+  const imageUrl = req.file.path
+
   if (name === "" || password === "" || email === "" || password.length < 3)  {
   res.render('auth/user-signup', {
     errorMessage: 'Name, email and Password are required.',
@@ -50,7 +53,7 @@ User.findOne({ name })
     const hashedPassword = bcrypt.hashSync(password, salt);
 
     // Create new user in DB, saving the encrypted password
-    User.create({ name, email, password: hashedPassword })
+    User.create({ name, email, password: hashedPassword, imageUrl})
       .then((user) => {
         res.redirect("/auth/login")
       })
@@ -77,8 +80,10 @@ authRouter.get("/professional-signup", isLoggedOut, (req, res) => {
 
 
 
-authRouter.post('/professional-signup', (req, res, next) => {
-  const { name, password, role, email, sport, registrationNumber, resources, imageUrl } = req.body;
+authRouter.post('/professional-signup', fileUploader.single('imageUrl'), (req, res, next) => {
+  const { name, password, role, email, sport, registrationNumber, resources} = req.body;
+  const imageUrl = req.file.path
+
   if (name === "" || password === "" || email === "" || sport === "" || registrationNumber === "" || password.length < 3)  {
   res.render('auth/professional-signup', {
     errorMessage: 'All fields are required.',
