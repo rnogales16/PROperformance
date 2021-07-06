@@ -16,5 +16,15 @@ reviewsRouter.get('/new-review', (req, res) => {
 });
 
 
+reviewsRouter.post('/new-review', (req , res) => {
+    const owner = req.session.currentUser._id
+    const comment = req.body.comment
+
+Review.create({owner, comment})
+.then((newReview => {
+  res.redirect('/') // redirect to the resorces page USER view
+}))
+})
+
 
 module.exports = reviewsRouter;
