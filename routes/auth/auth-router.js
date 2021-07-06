@@ -51,7 +51,7 @@ User.findOne({ name })
     // Generate salts and encrypt the password (known as Hash the password)
     const salt = bcrypt.genSaltSync(saltRounds);
     const hashedPassword = bcrypt.hashSync(password, salt);
-
+    
     // Create new user in DB, saving the encrypted password
     User.create({ name, email, password: hashedPassword, imageUrl})
       .then((user) => {
