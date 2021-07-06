@@ -20,3 +20,9 @@ h1 {
   cursor: pointer;
   color: #dabd18b2;
 }
+
+.logo {
+  font-family: 'Roboto', sans-serif;
+  text-decoration: none;
+  color: red;
+}
