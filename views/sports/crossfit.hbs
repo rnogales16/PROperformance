@@ -1,0 +1,23 @@
+
+<section>
+    <h2>CrossFit</h2>
+    <div>
+        <h4>Training</h4>
+        <p>CrossFit is a core strength and conditioning programme that combines aerobic and anaerobic resistance exercises that incorporate high-intensity interval training, Olympic weightlifting, powerlifting, and gymnastics. Workouts are designed to promote strength, endurance and flexibility through constantly varied movements that stress multiple energy systems at high intensity with little rest. Workouts generally last from a few seconds to 20-30 minutes.</p>
+   </div>
+   <div>
+        <h4>Nutrition</h4>
+        <p>Nutrition is a foundation for fitness and health for CrossFit and is viewed as the basis for physical movements. The CrossFit dietary prescription focuses on macronutrient ratio prescription of foods with particular focus on consumption of whole foods and elimination of processed foods whilst promoting a high protein, low carbohydrate intake. Individuals participating in CrossFit are encouraged to work with our Accredited Sports Dietitian plans to determine an appropriate carbohydrate intake based on training volume and individual body size as opposed to a percentage of total energy intake. This individualised approach supports training, performance, and body size of athletes more than ‘one size fits all’ methods.</p>
+   </div>
+    {{#each crossProf}}
+    <div class="professional-card">
+        <h2>Name: {{name}}</h2>
+        <img class="professional-img {{_id}}" src="{{imageUrl}}" alt="{{name}}" style="width: 50px;"/>  
+        <p>Email: {{email}}</p>
+        <p>Specialities: {{sport}}</p>
+        <a href="/site/professional/{{_id}}">See more</a>
+    </div>
+    {{/each}}
+    </div>
+    <a href="/all-sports"><button>All Sports</button></a>
+</section>

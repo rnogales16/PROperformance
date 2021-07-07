@@ -1,0 +1,23 @@
+
+<section>
+    <h2>Swim</h2>
+    <div>
+        <h4>Training</h4>
+        <p>Swimming requires a dedicated commitment to training, with elite swimmers training 6 to 12 times per week. Depending on the race distance, training sessions can cover up to 10km and include 1-2km of high-intensity sprints. As well as water based session, weight training sessions should be completed several times a week by elite swimmers. </p>
+   </div>
+   <div>
+        <h4>Nutrition</h4>
+        <p>Individual nutrition requirements will be determined by training load, specific athlete needs, training goals, body composition goals, health and adjustment for growth in younger athletes. Typically, training sessions are held early in the morning and as a result some swimmers skip breakfast before training for stomach comfort, lack of appetite or to sneak in an extra 10 minutes sleep! Ideally, swimmers should aim to eat breakfast or a light snack prior to training to maximise performance – especially for key training sessions. Liquid meal drinks or milk tetra packs can be useful for fuelling and stomach comfort, especially when appetite is poor.
+Nutrition is often based around lean proteins for muscle repair and recovery, carbohydrate appropriately timed for fuel. In addition, fruit, vegetables, nuts, seeds and wholegrains provide important vitamins and minerals, along with some healthy fats. Busy schedules also need to be considered (work, school, university) and meals/snacks need to be organised for eating ‘on the run’ to optimise fuelling and recovery.</p>
+   </div>
+    {{#each swimProf}}
+    <div class="professional-card">
+        <h2>Name: {{name}}</h2>
+        <img class="professional-img {{_id}}" src="{{imageUrl}}" alt="{{name}}" style="width: 50px;"/>  
+        <p>Email: {{email}}</p>
+        <p>Specialities: {{sport}}</p>
+        <a href="/site/professional/{{_id}}">See more</a>
+    </div>
+    {{/each}}
+    <a href="/all-sports"><button>All Sports</button></a>
+</section>

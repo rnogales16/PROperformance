@@ -1,4 +1,22 @@
 
 <section>
-
+    <h2>Run</h2>
+    <div>
+        <h4>Training</h4>
+        <p>Distance running entails road races and cross-country runs of varying distances including 10km, 15km, half marathon (21.1km) and the full marathon (42.2km). Ultra running refers to events covering distances beyond the standard marathon distance, including 50km, 100km, 50mile (80.5km) and 100mile (160.9km) events. Ultra events can be run within one day or over several days and take place in a variety of different formats and terrains. Many recreational runners train weekly distances of 50-100km for fitness and event preparation when training for races throughout the year. Elite distance runners follow a highly periodised program and can cover more than 150km in a week, depending on which event/s they are targeting and their current training phase. At the elite level, training usually involves two different training sessions a day adopting a hard-easy principle. For example, slow, longer runs or recovery/easy runs help build aerobic endurance. In contrast, intense continuous runs and interval/threshold sessions aim to improve anaerobic capacity and speed. Water running and weight training are included for injury rehabilitation.</p>
+   </div>
+   <div>
+        <h4>Nutrition</h4>
+        <p>Individual requirements will be determined by training load, type of sessions and training goals, specific individual needs, environment, body composition goals, health and adjustment for growth in younger runners. The best training diet will depend on the type of trail runner and target events. Some people might throw in a trail run as part of an overall mixed week of exercise, while others may be more serious competitors working towards specific races. Either way, there are some common principles when it comes to nutrition for training: <strong>Fuel, Repair, Energy and Health</strong></p>
+   </div>
+    {{#each runProf}}
+    <div class="professional-card">
+        <h2>Name: {{name}}</h2>
+        <img class="professional-img {{_id}}" src="{{imageUrl}}" alt="{{name}}" style="width: 50px;"/>  
+        <p>Email: {{email}}</p>
+        <p>Specialities: {{sport}}</p>
+        <a href="/site/professional/{{_id}}">See more</a>
+    </div>
+    {{/each}}
+    <a href="/all-sports"><button>All Sports</button></a>
 </section>
