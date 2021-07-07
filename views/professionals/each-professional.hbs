@@ -5,8 +5,24 @@
   <h2>Name: {{name}}</h2>
   <p>Email: {{email}}</p>
   <img class="professional-img" src="{{imageUrl}}" alt="{{name}}" />
+
 </div>
 
+
+
+<h3>List of plans:</h3>
+
+{{#if plans}}
+
+
+{{#each plans}}
+{{title}}
+{{description}}
+<img src="{{this.imageUrl}}" alt=""/>
+
+
+{{/each}}
+{{/if}}
 
 <br />
 <br />
