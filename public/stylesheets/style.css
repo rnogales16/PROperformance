@@ -26,3 +26,15 @@ h1 {
   text-decoration: none;
   color: red;
 }
+
+.nav-ul {
+  list-style: none;
+}
+
+.nav-ul a {
+  color: black;
+  text-decoration: none;
+
+}
+
+

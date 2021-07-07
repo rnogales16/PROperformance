@@ -46,10 +46,7 @@ personalRouter.get('/professional/:id', (req, res) => {
 	.populate({
 		path: 'reviews',
 		populate: {
-			path: 'plans',
-			populate: {
-				path: 'owner'
-			}
+			path: 'owner'
 		}
 	})
 	.then(professional => res.render('professionals/each-professional', professional))
@@ -62,7 +59,7 @@ personalRouter.post('/professional/:id', (req, res) => {
 	const comment = req.body.comment
 
 	Review.create({
-		user: req.session.currentUser._id,
+		owner: req.session.currentUser._id,
 		comment
 	})
 	.then((newReview) => {

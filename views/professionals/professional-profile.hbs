@@ -10,7 +10,10 @@
 {{#each planData}}
 <h2>{{title}}</h2>
 <p>{{description}}</p>
-<p>{{imageUrl}}</p>
+<object data="{{imageUrl}}" type="application/pdf">
+  <embed src="{{imageUrl}}" type="application/pdf" />
+</object>
+
 
 
 

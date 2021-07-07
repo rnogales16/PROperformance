@@ -6,7 +6,7 @@ document.addEventListener(
   false
 );
 
-const ratingStars = [...document.getElementsByClassName("rating__star")];
+/* const ratingStars = [...document.getElementsByClassName("rating__star")];
 
 function executeRating(stars) {
   const starClassActive = "rating__star fas fa-star";
@@ -25,4 +25,4 @@ function executeRating(stars) {
     };
   });
 }
-executeRating(ratingStars);
+executeRating(ratingStars); */
