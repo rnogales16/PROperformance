@@ -11,30 +11,33 @@ h1 {
   color: 15px;
 }
 
+/************ NAV *************/
 
-.rating {
-  width: 180px;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/************ footer *************/
+
+.footer a {
+  color: #53B8B4;
 }
 
-.rating__star {
-  cursor: pointer;
-  color: #dabd18b2;
-}
-
-.logo {
-  font-family: 'Roboto', sans-serif;
-  text-decoration: none;
-  color: red;
-}
-
-.nav-ul {
-  list-style: none;
-}
-
-.nav-ul a {
-  color: black;
-  text-decoration: none;
-
-}
 
 

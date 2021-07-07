@@ -3,9 +3,8 @@
 
 <div class="professional-card">
   <h2>Name: {{name}}</h2>
-  <p>Email: {{email}}</p>
   <img class="professional-img" src="{{imageUrl}}" alt="{{name}}" />
-
+  <p>Email: {{email}}</p>
 </div>
 
 
@@ -14,18 +13,14 @@
 
 {{#if plans}}
 
-
-{{#each plans}}
-{{title}}
-{{description}}
-<img src="{{this.imageUrl}}" alt=""/>
-
-
-{{/each}}
+  {{#each plans}}
+    {{title}}
+    {{description}}
+    <img src="{{this.imageUrl}}" alt=""/>
+  {{/each}}
 {{/if}}
 
-<br />
-<br />
+
 <h2>Want to leave a review?</h2>
 {{!-- <div class="rating">
   <i class="rating__star far fa-star"></i>
@@ -37,8 +32,6 @@
 
 
 <form action='/site/professional/{{_id}}' method='POST'>
-
-
 
   <textarea type='text' name='comment'></textarea>
   <span class="rating-reaction"></span>
@@ -58,6 +51,7 @@
   
   <p>Comment: </p>
   <p>{{comment}}</p>
+  <img src="../../public/images/image.png" alt="">
 
 {{/each}}
 {{/if}}
