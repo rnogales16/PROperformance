@@ -30,7 +30,7 @@ const users = [
     registrationNumber: 1234,
     imageUrl: '../public/images/trainCross2.jpeg'
   },
-
+ 
   {
     name: 'Lee',
     password: '$2a$10$qQxOtdmNPsgXcv1YFvbJ5uRzogrwIvguoEbkgfp4jWfgCbEOraQxK',
@@ -107,29 +107,7 @@ const users = [
     sport: 'Running',
     profession: 'Dietitian',
     registrationNumber: 2345,
-    imageUrl: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fes.m.wikipedia.org%2Fwiki%2FArchivo%3AImage_created_with_a_mobile_phone.png&psig=AOvVaw1TJuIZRy9vK2hDf5vJDU0j&ust=1625569458812000&source=images&cd=vfe&ved=0CAoQjRxqFwoTCNjE-aLky_ECFQAAAAAdAAAAABAD'
-  },
-
-  {
-    name: 'Marco',
-    password: '$2a$10$qQxOtdmNPsgXcv1YFvbJ5uRzogrwIvguoEbkgfp4jWfgCbEOraQxK',
-    email: 'marco@properformance.com',
-    role: 'Professional',
-    sport: 'Running',
-    profession: 'Dietitian',
-    registrationNumber: 2345,
-    imageUrl: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fes.m.wikipedia.org%2Fwiki%2FArchivo%3AImage_created_with_a_mobile_phone.png&psig=AOvVaw1TJuIZRy9vK2hDf5vJDU0j&ust=1625569458812000&source=images&cd=vfe&ved=0CAoQjRxqFwoTCNjE-aLky_ECFQAAAAAdAAAAABAD'
-  },
-
-  {
-    name: 'Fran',
-    password: '$2a$10$qQxOtdmNPsgXcv1YFvbJ5uRzogrwIvguoEbkgfp4jWfgCbEOraQxK',
-    email: 'fran@properformance.com',
-    role: 'Professional',
-    sport: 'Crosstrain',
-    profession: 'Dietitian',
-    registrationNumber: 2345,
-    imageUrl: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fes.m.wikipedia.org%2Fwiki%2FArchivo%3AImage_created_with_a_mobile_phone.png&psig=AOvVaw1TJuIZRy9vK2hDf5vJDU0j&ust=1625569458812000&source=images&cd=vfe&ved=0CAoQjRxqFwoTCNjE-aLky_ECFQAAAAAdAAAAABAD'
+    imageUrl: '../public/images/dietRun2.jpeg'
   },
 
   {
@@ -137,24 +115,42 @@ const users = [
     password: '$2a$10$qQxOtdmNPsgXcv1YFvbJ5uRzogrwIvguoEbkgfp4jWfgCbEOraQxK',
     email: 'maria@properformance.com',
     role: 'Professional',
-    sport: 'Crosstrain',
+    sport: 'Running',
     profession: 'Dietitian',
     registrationNumber: 2345,
-    imageUrl: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fes.m.wikipedia.org%2Fwiki%2FArchivo%3AImage_created_with_a_mobile_phone.png&psig=AOvVaw1TJuIZRy9vK2hDf5vJDU0j&ust=1625569458812000&source=images&cd=vfe&ved=0CAoQjRxqFwoTCNjE-aLky_ECFQAAAAAdAAAAABAD'
+    imageUrl: '../public/images/dietRun.jpeg'
+  },
+
+  {
+    name: 'Fran',
+    password: '$2a$10$qQxOtdmNPsgXcv1YFvbJ5uRzogrwIvguoEbkgfp4jWfgCbEOraQxK',
+    email: 'fran@properformance.com',
+    role: 'Professional',
+    sport: 'Crossfit',
+    profession: 'Dietitian',
+    registrationNumber: 2345,
+    imageUrl: '../public/images/dietCross.jpeg'
   },
 
   {
     name: 'Marco',
     password: '$2a$10$qQxOtdmNPsgXcv1YFvbJ5uRzogrwIvguoEbkgfp4jWfgCbEOraQxK',
-    email: 'marco@marco.com',
-    role: 'Athlete',
+    email: 'marco@properformance.com',
+    role: 'Professional',
+    sport: 'Crossfit',
+    profession: 'Dietitian',
+    registrationNumber: 2345,
+    imageUrl: '../public/images/dietCross2.jpeg'
   },
+
   {
-    name: 'Fede',
+    name: 'Mia',
     password: '$2a$10$qQxOtdmNPsgXcv1YFvbJ5uRzogrwIvguoEbkgfp4jWfgCbEOraQxK',
-    email: 'fede@fede.com',
+    email: 'mia@gmail.com',
     role: 'Athlete',
+    imageUrl: '../public/images/userImage.jpeg'
   },
+
 ];
 
 User.deleteMany()
