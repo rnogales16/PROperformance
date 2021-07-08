@@ -81,7 +81,7 @@ authRouter.get("/professional-signup", isLoggedOut, (req, res) => {
 
 
 authRouter.post('/professional-signup', fileUploader.single('imageUrl'), (req, res, next) => {
-  const { name, password, role, email, sport, registrationNumber, resources} = req.body;
+  const { name, password, role, email, sport, profession, registrationNumber, resources} = req.body;
   const imageUrl = req.file.path
 
   if (name === "" || password === "" || email === "" || sport === "" || registrationNumber === "" || password.length < 3)  {
@@ -108,7 +108,7 @@ User.findOne({ name })
     const hashedPassword = bcrypt.hashSync(password, salt);
 
     // Create new user in DB, saving the encrypted password
-    User.create({ name, email, role, password: hashedPassword, sport, registrationNumber, resources, imageUrl })
+    User.create({ name, email, role, password: hashedPassword, sport, profession, registrationNumber, resources, imageUrl })
       .then((user) => res.redirect("/auth/login"))
       .catch((err) => {
         if (err instanceof mongoose.Error.ValidationError) { 
