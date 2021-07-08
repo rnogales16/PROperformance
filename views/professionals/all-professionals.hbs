@@ -6,15 +6,19 @@
 <a href="/site/all-professionals?sport=swimming"><button>Swimming</button></a>
 <a href="/site/all-professionals?sport=running"><button>Running</button></a>
 
+<div class="allprof">
+    {{#each professionals}}
 
-{{#each professionals}}
+        <div class="professional-card">
+            <h2>{{name}}</h2>
+            <img class="professional-img {{_id}}" src="{{imageUrl}}" alt="{{name}}"/>  
+            <div class="prof-details">
+                <p>Email: {{email}}</p>
+                <p>Specialities: {{sport}}</p>
+                <p>Profession: {{profession}}</p>
+                <a href="/site/professional/{{_id}}">See more</a>
+            </div>
+        </div>
 
-    <div class="professional-card">
-        <h2>Name: {{name}}</h2>
-        <img class="professional-img {{_id}}" src="{{imageUrl}}" alt="{{name}}" style="width: 50px;"/>  
-        <p>Email: {{email}}</p>
-        <p>Specialities: {{sport}}</p>
-        <a href="/site/professional/{{_id}}">See more</a>
-    </div>
-
-{{/each}}
+    {{/each}}
+</div>

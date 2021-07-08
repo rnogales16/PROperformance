@@ -11,6 +11,6 @@ const isLoggedIn = require("../../middleware/isLoggedIn");
 
 sportRouter.get('/', (req, res, next) => {
     Sport.find()
-    .then(allSports => res.render('sports/sports', {allSports}))
+    .then(allSports => res.render('sports/sports', {allSports, user: req.session.currentUser}))
     .catch (err => console.log(err))
   })

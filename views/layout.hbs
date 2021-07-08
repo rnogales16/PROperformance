@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{title}}</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body class="layout">
@@ -17,21 +20,40 @@
 				<a class='navbar-item' href='/all-sports'>All Sports</a>
 			</div>
 			<div class='buttons'>
-				<a href='/auth/user-signup'>Athletes</a>
-				<a href='/auth/professional-signup'>Professionals</a>
-				<a href='/auth/login'>Log in</a>
-				{{#if user.name}}
-					<a href='/auth/logout'>Log out</a>
+				{{#if user._id}}
+				<a href='/site/profile/user'>Athlete Profile</a>
+					{{else}}
+					<a href='/auth/user-signup'>Athlete SignUp</a>
+			
+				{{/if}}
+				{{#if user._id}}
+				<a href='/site/profile/professional'>Professional Profile</a>
+					{{else}}
+					<a href='/auth/professional-signup'>Professional SignUp</a>
+		
+				{{/if}}
+				{{#if user._id}}
+				<a href='/auth/logout'>Logout</a>
+					{{else}}
+					<a href='/auth/login'>Login</a>
 				{{/if}}
 			</div>
 			<div class='burguer'>
-				
-				<a href='/auth/login'>Log in</a>
-				{{#if user.name}}
-					<a href='/auth/logout'>Log out</a>
+				{{#if user._id}}
+				<a href='/site/user-profile'>Athlete Profile</a>
+					{{else}}
+					<a href='/auth/user-signup'>Athlete SignUp</a>
 				{{/if}}
-				<a href='/auth/user-signup'><strong>Athletes</strong></a>
-				<a href='/auth/professional-signup'><strong>Professionals</strong></a>
+				{{#if user._id}}
+				<a href='/site/professional-profile'>Professional Profile</a>
+					{{else}}
+					<a href='/auth/professional-signup'>Professional SignUp</a>
+				{{/if}}
+				{{#if user._id}}
+				<a href='/auth/logout'>Logout</a>
+					{{else}}
+					<a href='/auth/login'>Login</a>
+				{{/if}}	
 			</div>
 		</nav>
 		<main class="main">

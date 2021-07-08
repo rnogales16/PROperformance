@@ -12,7 +12,7 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 
 // render form/ upload page for new plan
 plansRouter.get('/new-plan', (req, res) => {
-	res.render('professionals/new-plan');
+	res.render('professionals/new-plan', {user: req.session.currentUser});
 });
 
 
@@ -42,7 +42,7 @@ plansRouter.post('/new-plan', fileUploader.single('imageUrl'), (req , res) => {
 plansRouter.get('/:id', (req, res) => {
   const id = req.params.id;
   Plan.findById(id)
-  .then(planById => res.render('/professionals/professional-profile', planById))
+  .then(planById => res.render('/professionals/professional-profile', {planById, user: req.session.currentUser}))
   .catch(err => console.log(err))
 })
 
@@ -59,7 +59,7 @@ plansRouter.post('/delete-plan/:id', (req, res) => {
 plansRouter.get('/edit-plan/:id', (req, res) => {
   const id = req.params.id;
   Plan.findById(id)
-  .then(plan => res.render('professionals/edit-plan', plan))
+  .then(plan => res.render('professionals/edit-plan', {plan, user: req.session.currentUser}))
   .catch(err => console.log(err))
 })
 

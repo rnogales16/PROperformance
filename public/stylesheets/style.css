@@ -1,7 +1,7 @@
 body {
   padding: 0px;
   margin: 0;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", 'Open Sans', sans-serif;
 }
 
 a {
@@ -18,7 +18,7 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #66e6d9;
+  background-color: #14B8A7;
   width: 98%;
   height: 90px;
   padding: 0 1%;
@@ -38,7 +38,7 @@ h1 {
 }
 
 .navbar-pages a{
-  color: #212121;
+  color: #D9F2F0;
   text-decoration: none;
   font-size: 16px;
   padding: 0 3%;
@@ -52,7 +52,7 @@ h1 {
 }
 
 .buttons a{
-  color: #212121;
+  color: #D9F2F0;
   text-decoration: none;
   font-size: 16px;
   padding: 0 3%;
@@ -76,6 +76,126 @@ h1 {
 
 
 
+/************* cards *************/
+
+
+.allprof{
+  display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+
+.professional-card {
+  display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+  padding-top: 30px;
+  margin: 40px;
+  border: solid 3px #14B8A7;
+  border-radius: 5%;
+  color: #022723;
+  background-color: #EDF7F6;
+}
+
+.professional-card img {
+  width: 150px;
+  padding-bottom: 10px;
+}
+
+.professional-card h2 {
+  font-size: 40px;
+  padding: 5px;
+  margin: 0;
+}
+
+.prof-details {
+  background-color: #14B8A7;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 5%;
+  color: #EDF7F6;
+}
+
+.prof-details a {
+  text-decoration: none;
+  color: #022723;
+  font-weight: bold;
+
+}
+
+
+
+
+
+/************ main *************/
+.main {
+  padding: 0 4%;
+}
+
+
+
+
+
+
+/************ sports *************/
+.three-sports {
+  margin: 50px 0;
+  text-align: center;
+}
+
+.sports-swim {
+  background-image: url('http://www.nataswim.info/media/k2/items/cache/5483e331a9bace540b3a2478fc014e25_XL.jpg');
+  background-repeat: no-repeat;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  height: 450px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+.sports-run {
+  background-image: url('https://www.polar.com/blog/wp-content/uploads/2020/02/What-is-mindful-running-main.jpg');
+  background-repeat: no-repeat;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  height: 450px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+.sports-crossfit{
+  background-image: url('https://image.boxrox.com/2016/07/crossfit-woman-clean.png?w=640');
+  background-repeat: no-repeat;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  height: 500px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sports-p {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
 /************ footer *************/
 
 .footer{
@@ -94,6 +214,10 @@ h1 {
   text-decoration: none;
   font-size: 16px;
 }
+
+
+
+
 
 
 
@@ -119,7 +243,3 @@ h1 {
 
 
 
-/************ footer *************/
-.main {
-  padding: 0 4%;
-}

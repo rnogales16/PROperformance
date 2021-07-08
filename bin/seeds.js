@@ -8,7 +8,6 @@ const User = require("../models/user-model");
 require('../db/index.js');
 
 // Trainers
-
 const users = [
   {
     name: 'Raul',
@@ -18,7 +17,7 @@ const users = [
     sport: 'Crossfit',
     profession: 'Trainer',
     registrationNumber: 1234,
-    imageUrl: '../public/images/trainCross.jpeg'
+    imageUrl: '/images/trainCross.png'
   },
   {
     name: 'Lau',
@@ -28,7 +27,7 @@ const users = [
     sport: 'Crossfit',
     profession: 'Trainer',
     registrationNumber: 1234,
-    imageUrl: '../public/images/trainCross2.jpeg'
+    imageUrl: '/images/trainCross2.png'
   },
  
   {
@@ -39,7 +38,7 @@ const users = [
     sport: 'Running',
     profession: 'Trainer',
     registrationNumber: 1234,
-    imageUrl: '../public/images/trainRun.jpeg'
+    imageUrl: '/images/trainRun.png'
   },
 
   {
@@ -50,7 +49,7 @@ const users = [
     sport: 'Running',
     profession: 'Trainer',
     registrationNumber: 1234,
-    imageUrl: '../public/images/trainRun.jpeg'
+    imageUrl: '/images/trainRun2.png'
   },
 
   {
@@ -61,7 +60,7 @@ const users = [
     sport: 'Swimming',
     profession: 'Trainer',
     registrationNumber: 1234,
-    imageUrl: '../public/images/trainSwim.jpeg'
+    imageUrl: '/images/trainSwim.png'
   },
 
   {
@@ -72,7 +71,7 @@ const users = [
     sport: 'Swimming',
     profession: 'Trainer',
     registrationNumber: 1234,
-    imageUrl: '../public/images/trainSwim2.jpeg'
+    imageUrl: '/images/trainSwim2.png'
   },
 
 // Dietitians
@@ -85,7 +84,7 @@ const users = [
     sport: 'Swimming',
     profession: 'Dietitian',
     registrationNumber: 2345,
-    imageUrl: '../public/images/dietSwim.jpeg'
+    imageUrl: '/images/dietSwim.png'
   },
 
   {
@@ -96,7 +95,7 @@ const users = [
     sport: 'Swimming',
     profession: 'Dietitian',
     registrationNumber: 2345,
-    imageUrl: '../public/images/dietSwim2.jpeg'
+    imageUrl: '/images/dietSwim2.png'
   },
 
   {
@@ -107,7 +106,7 @@ const users = [
     sport: 'Running',
     profession: 'Dietitian',
     registrationNumber: 2345,
-    imageUrl: '../public/images/dietRun2.jpeg'
+    imageUrl: '/images/dietRun2.png'
   },
 
   {
@@ -118,7 +117,7 @@ const users = [
     sport: 'Running',
     profession: 'Dietitian',
     registrationNumber: 2345,
-    imageUrl: '../public/images/dietRun.jpeg'
+    imageUrl: '/images/dietRun.png'
   },
 
   {
@@ -129,7 +128,7 @@ const users = [
     sport: 'Crossfit',
     profession: 'Dietitian',
     registrationNumber: 2345,
-    imageUrl: '../public/images/dietCross.jpeg'
+    imageUrl: '/images/dietCross.png'
   },
 
   {
@@ -140,7 +139,7 @@ const users = [
     sport: 'Crossfit',
     profession: 'Dietitian',
     registrationNumber: 2345,
-    imageUrl: '../public/images/dietCross2.jpeg'
+    imageUrl: '/images/dietCross2.png'
   },
 
   {
@@ -148,7 +147,7 @@ const users = [
     password: '$2a$10$qQxOtdmNPsgXcv1YFvbJ5uRzogrwIvguoEbkgfp4jWfgCbEOraQxK',
     email: 'mia@gmail.com',
     role: 'Athlete',
-    imageUrl: '../public/images/userImage.jpeg'
+    imageUrl: '/images/userImage.png'
   },
 
 ];

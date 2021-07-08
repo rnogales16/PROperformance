@@ -39,7 +39,7 @@ personalRouter.get('/all-professionals', (req, res) => {
 	Object.assign(filter, {sport})}
 	User.find(filter)
 	// need to know how to populate plans here? Possible?
-	.then(professionals => res.render('professionals/all-professionals', {professionals}))
+	.then(professionals => res.render('professionals/all-professionals', {professionals, user: req.session.currentUser}))
 	.catch(err => console.log(err))
 })
 
@@ -55,7 +55,7 @@ personalRouter.get('/professional/:id', (req, res) => {
 	})
 	.populate('plans')
 	.then(professional =>{
-		res.render('professionals/each-professional', professional)
+		res.render('professionals/each-professional', {professional, user: req.session.currentUser})
 	})
 	.catch(err => console.log(err))
 })

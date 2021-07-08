@@ -20,7 +20,7 @@ const isLoggedIn = require("../../middleware/isLoggedIn");
 //************ Sign up user***************/
 
 authRouter.get("/user-signup", isLoggedOut, (req, res) => {
-  res.render("auth/user-signup", {roles: ['Athlete', 'Professional']});
+  res.render("auth/user-signup", {roles: ['Athlete', 'Professional'], user: req.session.currentUser});
 });
 
 
@@ -75,7 +75,7 @@ User.findOne({ name })
 //************ Sign up professional***************/
 
 authRouter.get("/professional-signup", isLoggedOut, (req, res) => {
-  res.render("auth/professional-signup", {sport: ['Crossfit', 'Swimming', 'Running'], roles: ['Athlete', 'Professional']});
+  res.render("auth/professional-signup", {sport: ['Crossfit', 'Swimming', 'Running'], roles: ['Athlete', 'Professional'], user: req.session.currentUser});
 });
 
 
@@ -131,7 +131,7 @@ User.findOne({ name })
 // *********** login user**************
 
 authRouter.get("/login", isLoggedOut, (req, res) => {
-  res.render("auth/login");
+  res.render("auth/login", {user: req.session.currentUser});
 });
 
 authRouter.post("/login", isLoggedOut, (req, res, next) => {
@@ -173,7 +173,7 @@ authRouter.post("/login", isLoggedOut, (req, res, next) => {
 authRouter.get('/logout', (req, res) => {
   req.session.destroy(err => {
     if(err){
-      res.render("error", { message: "Something went wrong!" });
+      res.render("error", { message: "Something went wrong!", user: req.session.currentUser });
     }else{
       res.redirect('/')
     }

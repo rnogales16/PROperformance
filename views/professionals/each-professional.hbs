@@ -2,18 +2,18 @@
 <h1>Professional details</h1>
 
 <div class="professional-card">
-  <h2>Name: {{name}}</h2>
-  <img class="professional-img" src="{{imageUrl}}" alt="{{name}}" />
-  <p>Email: {{email}}</p>
+  <h2>Name: {{professional.name}}</h2>
+  <img class="professional-img" src="{{professional.imageUrl}}" alt="{{professional.name}}" />
+  <p>Email: {{professional.email}}</p>
 </div>
 
 
 
 <h3>List of plans:</h3>
 
-{{#if plans}}
+{{#if professional.plans}}
 
-  {{#each plans}}
+  {{#each professional.plans}}
     {{title}}
     {{description}}
     <img src="{{this.imageUrl}}" alt=""/>
@@ -42,10 +42,10 @@
 
 
 
-{{#if reviews}}
+{{#if professional.reviews}}
 <h3>List of reviews:</h3>
 
-{{#each reviews}}
+{{#each professional.reviews}}
 
   <h4>Athlete: {{owner.name}}</h4>
   

@@ -1,15 +1,15 @@
 <h2>Edit plan</h2>
-<form action="/plan/edit-plan/{{_id}}" method="POST">
+<form action="/plan/edit-plan/{{plan._id}}" method="POST">
 
   <label for="">Title:</label>
-  <input type="text" name="title" value="{{title}}"/>
+  <input type="text" name="title" value="{{plan.title}}"/>
 
   <label for="">Description:</label>
-  <input type="text" name="description" value="{{description}}"/>
+  <input type="text" name="description" value="{{plan.description}}"/>
 
   <label>PDF File:
     <input type="file" name="imageUrl"/>
-    <input type="text" name="existingPDF" value="{{imageUrl}}">
+    <input type="text" name="existingPDF" value="{{plan.imageUrl}}">
   </label>
 
   <button type="submit">Save changes</button>
