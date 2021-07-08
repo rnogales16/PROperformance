@@ -25,12 +25,17 @@ plansRouter.post('/new-plan', fileUploader.single('imageUrl'), (req , res) => {
 
   Plan.create({owner, title, description, imageUrl})
   .then((newPlan => {
+    console.log('this is the new plan', newPlan)
+
+    User.findByIdAndUpdate(owner, {
+			$addToSet: {plans: newPlan._id}
+		})
+    .then(user => console.log('this is the updated professionaL', user))
+    
     res.redirect('/site/profile/professional')
   }))
   .catch(err => console.log(err))
 })
-
-
 
 
 

@@ -1,6 +1,6 @@
 
 
-<h1>List of all rooms</h1>
+<h1>Our Professionals</h1>
 
 {{!-- <div class="filter">
     <p>Order by rating</p>
@@ -11,16 +11,10 @@
 {{#each professionals}}
 
     <div class="professional-card">
-
         <h2>Name: {{name}}</h2>
-        
+        <img class="professional-img {{_id}}" src="{{imageUrl}}" alt="{{name}}" style="width: 50px;"/>  
         <p>Email: {{email}}</p>
-        
-        <img class="professional-img {{_id}}" src="{{imageUrl}}" alt="{{name}}" />
-        
         <p>Specialities: {{sport}}</p>
-        
-        
         <a href="/site/professional/{{_id}}">See more</a>
     </div>
 

@@ -1,23 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <title>{{title}}</title>
-      <link rel="stylesheet" href="/stylesheets/style.css" />
-      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap" rel="stylesheet">
-   </head>
-
-   <body>
-
-      {{{body}}}
-
-      <script src="/js/script.js"></script>
-   </body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <nav class='navbar'>
+			<div class='navbar-pages'>
+				<img src="../public/images/Captura de pantalla 2021-07-07 a las 23.17.05.png" alt="logo">
+				<a href='/'>Home</a>
+				<a class='navbar-link' href='/site/all-professionals'>All Professionals</a>
+				<a class='navbar-item' href='/all-sports'>All Sports</a>
+			</div>
+			<div class='buttons'>
+				<a href='/auth/user-signup'><strong>Athletes</strong></a>
+				<a href='/auth/professional-signup'><strong>Professionals</strong></a>
+				<a href='/auth/login'>Log in</a>
+				{{#if user.name}}
+					<a href='/auth/logout'>Log out</a>
+				{{/if}}
+			</div>
+		</nav>
+		<main>
+			{{{body}}}
+		</main>
+		<footer class='footer'>
+			<h4><strong>Second Project </strong></h4>
+			<p> by <a href='https://github.com/rnogales16'>Raul Nogales</a> and <a href='https://github.com/Miki-Geoghegan'>Miki Geoghegan</a>.<br>
+			Made at <a href='https://www.ironhack.com/es/barcelona'> Ironhack Barcelona</a><br>
+			&#128151
+			</p>
+		</footer>
+    <script src="/js/script.js"></script>
+  </body>
 
 </html>

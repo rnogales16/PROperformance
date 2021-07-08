@@ -49,7 +49,10 @@ personalRouter.get('/professional/:id', (req, res) => {
 			path: 'owner'
 		}
 	})
-	.then(professional => res.render('professionals/each-professional', professional))
+	.populate('plans')
+	.then(professional =>{
+		res.render('professionals/each-professional', professional)
+	})
 	.catch(err => console.log(err))
 })
 
