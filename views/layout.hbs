@@ -8,10 +8,10 @@
     <title>{{title}}</title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
-  <body>
+  <body class="layout">
     <nav class='navbar'>
 			<div class='navbar-pages'>
-				<img src="../public/images/Captura de pantalla 2021-07-07 a las 23.17.05.png" alt="logo">
+				<img src="/images/Captura de pantalla 2021-07-08 a las 10.13.03.png" alt="logo">
 				<a href='/'>Home</a>
 				<a class='navbar-link' href='/site/all-professionals'>All Professionals</a>
 				<a class='navbar-item' href='/all-sports'>All Sports</a>
@@ -24,16 +24,25 @@
 					<a href='/auth/logout'>Log out</a>
 				{{/if}}
 			</div>
+			<div class='burguer'>
+				
+				<a href='/auth/login'>Log in</a>
+				{{#if user.name}}
+					<a href='/auth/logout'>Log out</a>
+				{{/if}}
+				<a href='/auth/user-signup'><strong>Athletes</strong></a>
+				<a href='/auth/professional-signup'><strong>Professionals</strong></a>
+			</div>
 		</nav>
 		<main>
 			{{{body}}}
 		</main>
 		<footer class='footer'>
-			<h4><strong>Second Project </strong></h4>
-			<p> by <a href='https://github.com/rnogales16'>Raul Nogales</a> and <a href='https://github.com/Miki-Geoghegan'>Miki Geoghegan</a>.<br>
-			Made at <a href='https://www.ironhack.com/es/barcelona'> Ironhack Barcelona</a><br>
-			&#128151
-			</p>
+			<div>
+				<p>Made by <a href='https://github.com/rnogales16'>Raul Nogales</a> and <a href='https://github.com/Miki-Geoghegan'>Miki 	Geoghegan</a>.<br>
+				At <a href='https://www.ironhack.com/es/barcelona'> 	Ironhack Barcelona</a><br>
+				&#128151</p>
+			</div>
 		</footer>
     <script src="/js/script.js"></script>
   </body>

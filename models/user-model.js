@@ -21,6 +21,8 @@ const userSchema = new Schema({
 
 	sport: {type: String, enum: ['Crossfit', 'Swimming', 'Running']},
 
+	profession: {type: String, enum: ['Trainer', 'Dietitian']},
+
 	registrationNumber: {
 		type: Number,
 		min: 0

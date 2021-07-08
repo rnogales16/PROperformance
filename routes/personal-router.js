@@ -33,7 +33,11 @@ personalRouter.get("/profile/professional", (req, res) => {
 // all professionals
 
 personalRouter.get('/all-professionals', (req, res) => {
-	User.find({role: 'Professional'})
+	const filter = {role: 'Professional'}
+	if (req.query.sport) {
+		sport = req.query.sport[0].toUpperCase()+req.query.sport.slice(1)
+	Object.assign(filter, {sport})}
+	User.find(filter)
 	// need to know how to populate plans here? Possible?
 	.then(professionals => res.render('professionals/all-professionals', {professionals}))
 	.catch(err => console.log(err))

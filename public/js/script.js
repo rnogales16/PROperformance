@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+
 /* const ratingStars = [...document.getElementsByClassName("rating__star")];
 
 function executeRating(stars) {
