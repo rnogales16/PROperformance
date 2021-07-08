@@ -1,23 +1,22 @@
-<h1>LOGIN PAGE</h1>
+<div class="login-page">
+  <h3>LOGIN PAGE</h3>
 
-<form id="form" action='/auth/login' method='POST'>
+  <form class="login-form" action='/auth/login' method='POST'>
+    <div>
+      <label for=''>Email</label>
+      <input type='text' name='email' required>
+    </div>
+    <div>
+      <label for=''>Password</label>
+      <input type='password' name='password'>
+    </div>
+    {{!-- <input name="action" onclick="history.back()" type="submit"  value="Cancel"/> --}}
 
-  <label for=''>Email</label>
-  <input type='text' name='email' required>
+    <button type='submit'>Submit</button>
+  </form>
 
-  <label for=''>Password</label>
-  <input type='password' name='password'>
-
-  {{!--<input name="action" onclick="history.back()" type="submit" value="Cancel"/>--}}
-
-  <button type='submit'>Submit</button>
-</form>
-
-{{!-- Error message display --}}
-{{#if errorMessage}}
-<div class="error-message"> {{errorMessage}} </div>
-{{/if}}
-
-<br>
-
-<a href="/"><button style="background: blue">Return to homepage</button></a>
+  {{!-- Error message display --}}
+  {{#if errorMessage}}
+    <div class="error-message"> {{errorMessage}} </div>
+  {{/if}}
+</div>

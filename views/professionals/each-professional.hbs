@@ -1,57 +1,43 @@
 
-<h1>Professional details</h1>
+<section class="one-main-body">
+  <div class="one-professional">
+    <h2>Professional details</h2>
+    <h3>{{professional.name}}</h3>
+    <img class="professional-img" src="{{professional.imageUrl}}" alt="{{professional.name}}" />
+    <p>Email: {{professional.email}}</p>
+    <h3>Plans</h3>
+  </div>
+  <div class="plans">
+      {{#if professional.plans}}
+      {{#each professional.plans}}
+      <div class="each-plan">
+        <h4>{{title}}</h4>
+        <p>{{description}}</p>
+        <a href="{{imageUrl}}"><img src="{{imageUrl}}" alt="plan-image"/></a>
+      </div>
+     {{/each}}
+     {{/if}}
 
-<div class="professional-card">
-  <h2>Name: {{professional.name}}</h2>
-  <img class="professional-img" src="{{professional.imageUrl}}" alt="{{professional.name}}" />
-  <p>Email: {{professional.email}}</p>
-</div>
+  </div>
+  <div>
+    <h4>Want to leave a review?</h4>
 
-
-
-<h3>List of plans:</h3>
-
-{{#if professional.plans}}
-
-  {{#each professional.plans}}
-    {{title}}
-    {{description}}
-    <img src="{{this.imageUrl}}" alt=""/>
-  {{/each}}
-{{/if}}
-
-
-<h2>Want to leave a review?</h2>
-{{!-- <div class="rating">
-  <i class="rating__star far fa-star"></i>
-  <i class="rating__star far fa-star"></i>
-  <i class="rating__star far fa-star"></i>
-  <i class="rating__star far fa-star"></i>
-  <i class="rating__star far fa-star"></i>
-</div> --}}
-
-
-<form action='/site/professional/{{_id}}' method='POST'>
-
-  <textarea type='text' name='comment'></textarea>
-  <span class="rating-reaction"></span>
-
-  <button type="submit" class="submit-rating">Send comment</button>
-
-</form>
-
-
-
-{{#if professional.reviews}}
-<h3>List of reviews:</h3>
-
-{{#each professional.reviews}}
-
-  <h4>Athlete: {{owner.name}}</h4>
-  
-  <p>Comment: </p>
-  <p>{{comment}}</p>
-  <img src="../../public/images/image.png" alt="">
-
-{{/each}}
-{{/if}}
+    <form action='/site/professional/{{professional._id}}' method='POST'>
+      <textarea type='text' name='comment' placeholder="We value your feedback!" cols="150" rows="10"></textarea>
+      <br>
+      <button type="submit" class="filter-btn">Send</button>
+    </form>
+  </div>
+  <div class="reviews">
+    {{#if professional.reviews}}
+      <h4>Reviews</h4>
+      {{#each professional.reviews}}
+      <div class="review-details">
+        <h5>{{owner.name}}</h5>
+        <img src="{{owner.imageUrl}}" alt="{{owner.name}}">
+        <p>"{{comment}}"</p>
+      </div>
+      {{/each}}
+    {{/if}}
+  </div>
+</section>
