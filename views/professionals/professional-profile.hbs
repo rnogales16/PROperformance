@@ -1,37 +1,26 @@
-<div class="one-professional">
+<section>
+  <div class="one-professional">
+    <h3>{{user.name}} Profile</h3>
+    <img class="professional-img" src="{{user.imageUrl}}" alt="{{user.name}}"/>
+    <p>Email: {{user.email}}</p>
+    <p>Registration: {{user.registrationNumber}}</p>
+    <p>Speciality: {{user.sport}}</p>
+    <a href="/plan/new-plan"><button class="filter-btn">Create a new plan</button></a>
+    <h3>Instructor Plans</h3>
+  </div>
+  <div class="plans">
+    {{#each planData}}
+    <div class="each-plan">
+      <h4>{{title}}</h4>
+      <p>{{description}}</p>
+      <a href="{{imageUrl}}"><img src="{{imageUrl}}" alt="plan-image"></a>
+      <a href="/plan/edit-plan/{{_id}}"><button class="filter-btn2" type="submit">Edit plan</button></a>
+      <form action="/plan/delete-plan/{{_id}}" method="POST">
+        <button class="filter-btn2" type="submit">Delete plan</button>
+      </form>
+    </div>
+    {{/each}}
+  </div>
 
-</div>
-<h2>{{user.name}} Profile</h2>
-<img class="professional-img" src="{{user.imageUrl}}" alt="{{user.name}}" style="width: 50px;"/>
+</section>  
 
-<p>Email: {{user.email}}</p>
-<p>Registration: {{user.registrationNumber}}</p>
-<p>Speciality: {{user.sport}}</p>
-
-<a href="/plan/new-plan"><button>Create a new plan</button></a>
-
-<div class="plans">
-  <h1>Instructor Plans</h1>
-  {{#each planData}}
-  <h2>{{title}}</h2>
-  <p>{{description}}</p>
-
-  <a href="{{imageUrl}}"><img src="{{imageUrl}}" alt="plan-image"></a>
-</div>
-
-
-
-
-
-
-
-<a href="/plan/edit-plan/{{_id}}"><button type="submit">Edit plan</button></a>
-
-
-<form action="/plan/delete-plan/{{_id}}" method="POST">
-  <button type="submit">Delete plan</button>
-</form>
-
-{{/each}}
-
-<p>Client reviews:</p>

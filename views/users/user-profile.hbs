@@ -1,9 +1,14 @@
-<h2>Your Profile</h2>
+<section>
+    <div class="one-professional">
+        <h3>{{user.name}} Profile</h3>
+        <img class="professional-img" src="{{user.imageUrl}}" alt="{{user.name}}"/>
+        <p>Email: {{user.email}}</p>
+        <div>
+            <a href="/site/all-professionals"><button class="filter-btn">See Professionals</button></a>
+            <a href="/all-sports"><button class="filter-btn">See Sports</button></a>
+        </div>
+    </div>
 
-<p>Name: {{user.name}}</p>
-<p>Email: {{user.email}}</p>
-<p>Plans:</p>
-<a href="/site/all-professionals"><button>See Professionals</button></a>
-<a href="/site/all-sports"><button>See Sports</button></a>
+</section>
 
 

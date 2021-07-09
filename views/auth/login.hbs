@@ -1,18 +1,18 @@
 <div class="login-page">
-  <h3>LOGIN PAGE</h3>
+  <h2>LOGIN PAGE</h2>
 
   <form class="login-form" action='/auth/login' method='POST'>
-    <div>
-      <label for=''>Email</label>
+    <div class="inputs">
+      <label for='' style="margin-left: 15px;">Email:</label>
       <input type='text' name='email' required>
     </div>
-    <div>
-      <label for=''>Password</label>
+    <div class="inputs">
+      <label for=''>Password:</label>
       <input type='password' name='password'>
     </div>
     {{!-- <input name="action" onclick="history.back()" type="submit"  value="Cancel"/> --}}
 
-    <button type='submit'>Submit</button>
+    <button type='submit' class="filter-btn" style="margin-top: 70px; margin-left: 100px;">Submit</button>
   </form>
 
   {{!-- Error message display --}}

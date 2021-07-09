@@ -1,49 +1,50 @@
-<h1>Sign Up Professionals</h1>
+<div class="professional-signup">
+  <h2 style="font-size: 40px; margin-bottom: 0px;">Sign Up Professionals</h2>
 
-<form id="form" action='/auth/professional-signup' method='POST' enctype="multipart/form-data">
+  <form id="form" action='/auth/professional-signup' method='POST' enctype="multipart/  form-data" class="prefessional-signup-form">
 
-  
-  <label for=''>Name</label>
-  <input type='text' name='name'>
-  
-  <label for=''>Email</label>
-  <input type='text' name='email'>
+    <div class="inputs">
+      <label for=''>Name:</label>
+      <input type='text' name='name'>
+    </div>
+    <div class="inputs">
+      <label for=''>Email:</label>
+      <input type='text' name='email'>
+    </div>
+    <div class="inputs">
+      <label for=''>Password:</label>
+      <input type='password' name='password'>
+    </div>
+    <label for=''>Role:</label>
+    <select type='select' name='role'>
+      <option disable selected value="">Select a role</option>
+      {{#each roles}}
+      <option value="{{this}}">{{this}}</option>
+      {{/each}}
+    </select>
+    <br>
+    <label for=''>Sport:</label>
+    <select type='select' name='sport'>
+      <option disable selected value="">Select a Sport</option>
+      {{#each sport}}
+      <option value="{{this}}">{{this}}</option>
+      {{/each}}
+    </select>
+    <br>
+    <div>
+      <label for=''>Registration Number:</label>
+      <input type='number', min = '0', name='registrationNumber'>
+    </div>
+    <br>
+    <label>Image:</label>
+    <input type="file" name="imageUrl"/>
 
-  <label for=''>Password</label>
-  <input type='password' name='password'>
 
-  <label for=''>Role</label>
-  <select type='select' name='role'>
-    <option disable selected value="">Select a role</option>
-    {{#each roles}}
-    <option value="{{this}}">{{this}}</option>
-    {{/each}}
-  </select>
-  
-  <label for=''>Sport</label>
-  <select type='select' name='sport'>
-    <option disable selected value="">Select a Sport</option>
-    {{#each sport}}
-    <option value="{{this}}">{{this}}</option>
-    {{/each}}
-  </select>
-
-  <label for=''>Registration Number</label>
-  <input type='number', min = '0', name='registrationNumber'>
-  
-  <br>
-  <label>Image:</label>
-  <input type="file" name="imageUrl"/>
+    <button type='submit' class="filter-btn" style="margin-top: 20px;">Submit</button>
+  </form>
 
 
-  <button type='submit'>Submit</button>
-</form>
-
-
-{{#if errorMessage}}
-<div class="error-message"> {{errorMessage}} </div>
-{{/if}}
-
-<br> 
-
-<a href="/"><button style="background: blue">Return to homepage</button></a>
+  {{#if errorMessage}}
+  <div class="error-message"> {{errorMessage}} </div>
+  {{/if}}
+</div>

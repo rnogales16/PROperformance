@@ -1,33 +1,34 @@
-<h1>Sign Up</h1>
+<div class="user-signup">
+  <h2>Sign Up</h2>
 
-<form id="form" action='/auth/user-signup' method='POST' enctype="multipart/form-data">
+  <form id="form" action='/auth/user-signup' method='POST'  enctype="multipart/form-data" class="user-signup-form">
+    <div class="inputs">
+      <label for=''>Name:</label>
+      <input type='text' name='name'>
+    </div>
+    <div class="inputs">
+      <label for=''>Email:</label>
+      <input type='text' name='email'>
+    </div>
+    <div class="inputs">
+      <label for=''>Password:</label>
+      <input type='password' name='password'>
+    </div>
 
-  <label for=''>Name</label>
-  <input type='text' name='name'>
-  
-  <label for=''>Email</label>
-  <input type='text' name='email'>
+    <select type='select' name='role' style="margin-top: 30px;">
+      <option disable selected value="">Select a role</option>
+      {{#each roles}}
+        <option value="{{this}}">{{this}}</option>
+      {{/each}}
+    </select>
+    <br>
+    <label>Image:</label>
+    <input type="file" name="imageUrl"/>
+    <br>
+    <button type='submit' class="filter-btn">Submit</button>
+  </form>
 
-  <label for=''>Password</label>
-  <input type='password' name='password'>
-
-  <select type='select' name='role'>
-    <option disable selected value="">Select a role</option>
-    {{#each roles}}
-    <option value="{{this}}">{{this}}</option>
-    {{/each}}
-  </select>
-
-  <label>Image:</label>
-  <input type="file" name="imageUrl"/>
-
-  <button type='submit'>Submit</button>
-</form>
-
-{{#if errorMessage}}
-<div class="error-message"> {{errorMessage}} </div>
-{{/if}}
-
-<br> 
-
-<a href="/"><button style="background: blue">Return to homepage</button></a>
+  {{#if errorMessage}}
+  <div class="error-message"> {{errorMessage}} </div>
+  {{/if}}
+</div>

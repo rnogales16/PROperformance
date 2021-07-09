@@ -146,6 +146,10 @@ h5 {
 	align-content: center;
 }
 
+.sports-intro h3 {
+  color: #EDF7F6;
+}
+
 .sports-intro p{
   width: 60%;
   display: flex;
@@ -192,9 +196,8 @@ h5 {
   align-content: center;
   display: flex;
 	flex-direction: column;
-	justify-content: space-around;
+	justify-content: center;
 	align-items: center;
-  padding-top: 30px;
   margin: 40px;
   border: solid 3px #14B8A7;
   border-radius: 5%;
@@ -205,17 +208,47 @@ h5 {
   margin: 0 auto;
 }
 
+.login-form {
+  margin-top: 100px;
+  align-content: center;
+}
 
-
-
-
+.inputs input{
+  width: 200px;
+  border-radius: 10%;
+  height: 25px;
+  margin-top: 30px;
+}
 
 
 
 
 /************* ATHLETE SIGN UP *************/
+.user-signup {
+  align-content: center;
+  display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+  margin: 40px;
+  border: solid 3px #14B8A7;
+  border-radius: 5%;
+  color: #022723;
+  background-color: #EDF7F6;
+  height: 600px;
+  width: 450px;
+  margin: 0 auto;
+}
 
-
+.user-signup-form {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  padding: 60px;
+}
 
 
 
@@ -225,11 +258,97 @@ h5 {
 
 
 /************* PROFESSIONAL SIGN UP *************/
+.professional-signup {
+  align-content: center;
+  display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+  margin: 40px;
+  border: solid 3px #14B8A7;
+  border-radius: 5%;
+  color: #022723;
+  background-color: #EDF7F6;
+  height: 600px;
+  width: 450px;
+  margin: 0 auto;
+}
+
+.prefessional-signup-form {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  padding: 60px;
+}
 
 
 
 
 
+
+/************ EDIT PLAN ***************/
+.edit-plan {
+  align-content: center;
+  display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+  margin: 40px;
+  border: solid 3px #14B8A7;
+  border-radius: 5%;
+  color: #022723;
+  background-color: #EDF7F6;
+  height: 600px;
+  width: 450px;
+  margin: 0 auto;
+}
+
+.edit-plan-form {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  padding: 60px;
+}
+
+
+
+
+
+
+
+
+/************* NEW PLAN *************/
+.new-plan {
+  align-content: center;
+  display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+  margin: 40px;
+  border: solid 3px #14B8A7;
+  border-radius: 5%;
+  color: #022723;
+  background-color: #EDF7F6;
+  height: 600px;
+  width: 450px;
+  margin: 0 auto;
+}
+
+.new-plan-form {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  padding: 60px;
+}
 
 
 
@@ -241,7 +360,7 @@ h5 {
  display: flex;
  flex-direction: column;
  align-items: center;
-
+padding-bottom: 10px;
 }
 
 .filter-btn {
@@ -461,6 +580,62 @@ h5 {
   margin-bottom: 15px;
 }
 
+/************* One sport **********/
+
+.one-sport {
+  background-image: url('http://www.nataswim.info/media/k2/items/cache/5483e331a9bace540b3a2478fc014e25_XL.jpg');
+  background-repeat: no-repeat;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  height: 550px;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+	align-items: center;
+	align-content: center;
+  text-align: center;
+
+}
+
+
+.run-sport {
+  background-image: url('https://www.polar.com/blog/wp-content/uploads/2020/02/What-is-mindful-running-main.jpg');
+  background-repeat: no-repeat;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  height: 550px;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+	align-items: center;
+	align-content: center;
+  text-align: center;
+
+}
+
+.cross-sport {
+  background-image: url('https://image.boxrox.com/2016/07/crossfit-woman-clean.png?w=640');
+  background-repeat: no-repeat;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  height: 550px;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+	align-items: center;
+	align-content: center;
+  text-align: center;
+
+}
 
 /************ FOOTER *************/
 
@@ -507,5 +682,22 @@ h5 {
 
 }
 
+.filter-btn2 {
+  padding: 10px;
+  margin: 5px;
+  background-color: #022723;
+  color: #D9F2F0;
+  border-radius: 5%;
+  font-size: 12px;
+}
+
+.filter-btn2:hover {
+  padding: 10px;
+  margin: 5px;
+  background-color: #D9F2F0;
+  color: #022723;
+  border-radius: 5%;
+  
+}
 
 
