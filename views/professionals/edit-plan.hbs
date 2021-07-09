@@ -2,16 +2,17 @@
   <h2>Edit plan</h2>
   <form action="/plan/edit-plan/{{plan._id}}" method="POST" class="edit-plan-form">
     <div class="inputs">
-      <label for="">Title:</label>
+      <label for="">Title</label>
       <input type="text" name="title" value="{{plan.title}}"/>
     </div>
     <div class="inputs">
-      <label for="">Description:</label>
+      <label for="">Description</label>
       <input type="text" name="description" value="{{plan.description}}"/>
     </div>
     <div>
-      <label>PDF File:
-        <input type="file" name="imageUrl"/>
+      <br>
+      <label>
+        <input type="file" name="imageUrl" class="select-file"/>
         <input type="text" name="existingPDF" value="{{plan.imageUrl}}">
       </label>
     </div>

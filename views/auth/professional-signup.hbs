@@ -4,40 +4,40 @@
   <form id="form" action='/auth/professional-signup' method='POST' enctype="multipart/  form-data" class="prefessional-signup-form">
 
     <div class="inputs">
-      <label for=''>Name:</label>
-      <input type='text' name='name'>
+      <label for=''>Name</label>
+      <input type='text' name='name' placeholder="Name">
     </div>
     <div class="inputs">
-      <label for=''>Email:</label>
-      <input type='text' name='email'>
+      <label for=''>Email</label>
+      <input type='text' name='email' placeholder="Email">
     </div>
     <div class="inputs">
-      <label for=''>Password:</label>
-      <input type='password' name='password'>
+      <label for=''>Password</label>
+      <input type='password' name='password' placeholder="Password">
     </div>
-    <label for=''>Role:</label>
-    <select type='select' name='role'>
-      <option disable selected value="">Select a role</option>
-      {{#each roles}}
-      <option value="{{this}}">{{this}}</option>
-      {{/each}}
-    </select>
-    <br>
-    <label for=''>Sport:</label>
-    <select type='select' name='sport'>
-      <option disable selected value="">Select a Sport</option>
-      {{#each sport}}
-      <option value="{{this}}">{{this}}</option>
-      {{/each}}
-    </select>
-    <br>
-    <div>
-      <label for=''>Registration Number:</label>
-      <input type='number', min = '0', name='registrationNumber'>
+    <div class="inputs">
+      <label for=''>Registration Number</label>
+      <input type='number', min = '0', name='registrationNumber' placeholder="12345">
+    </div>
+    <div class="roleandsport">
+      <select type='select' name='role'>
+        <option disable selected value="">Select a role</option>
+        {{#each roles}}
+        <option value="{{this}}">{{this}}</option>
+        {{/each}}
+      </select>
+      <br>
+      <select type='select' name='sport'>
+        <option disable selected value="">Select a Sport</option>
+        {{#each sport}}
+        <option value="{{this}}">{{this}}</option>
+        {{/each}}
+      </select>
     </div>
     <br>
-    <label>Image:</label>
-    <input type="file" name="imageUrl"/>
+    <label>Image</label>
+    <br>
+    <input type="file" name="imageUrl" class="select-file"/>
 
 
     <button type='submit' class="filter-btn" style="margin-top: 20px;">Submit</button>

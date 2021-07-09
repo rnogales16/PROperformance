@@ -3,16 +3,16 @@
 
   <form id="form" action='/auth/user-signup' method='POST'  enctype="multipart/form-data" class="user-signup-form">
     <div class="inputs">
-      <label for=''>Name:</label>
-      <input type='text' name='name'>
+      <label for=''>Name</label>
+      <input type='text' name='name' placeholder="Name">
     </div>
     <div class="inputs">
-      <label for=''>Email:</label>
-      <input type='text' name='email'>
+      <label for=''>Email</label>
+      <input type='text' name='email'placeholder="Email">
     </div>
     <div class="inputs">
-      <label for=''>Password:</label>
-      <input type='password' name='password'>
+      <label for=''>Password</label>
+      <input type='password' name='password' placeholder="Password">
     </div>
 
     <select type='select' name='role' style="margin-top: 30px;">
@@ -23,7 +23,8 @@
     </select>
     <br>
     <label>Image:</label>
-    <input type="file" name="imageUrl"/>
+    <br>
+    <input type="file" name="imageUrl" class="select-file"/>
     <br>
     <button type='submit' class="filter-btn">Submit</button>
   </form>
